@@ -1,0 +1,127 @@
+<DOCTYPE! html>
+<!-- 
+PROJECT 8 - Its the same as project 7 but instead we have object arrays and now corona virus is a pandemic
+-->
+<head> 
+<style>
+	div{
+  
+  width: 550px;
+  padding: 15px;
+  color:red;
+  background-color:yellow;
+  border: 5px solid gray;
+  margin: 0 auto; /*THIS IS TO KEEP THE BLOCK CENTERED*/
+
+	
+	}
+</style>
+<div>
+<style>
+
+table {
+  border: 3;
+  border-collapse: collapse;
+  width:40%
+  text-align: left;
+  
+}
+th, td {
+padding: 8px
+}
+
+
+
+
+
+</style>
+<script>
+  var costSum = 0;
+  var register = [];                      // create the array 
+  function Cart (item, cost, quan) {       // Constructor function instantiates the objects, one at a time
+       this.cart_item = item;       // item
+       this.cart_cost = cost;		// cost
+       this.cart_quan = quan;        // quantity
+  }
+  
+  
+function insert(){
+  register.push(new Cart((document.getElementById('item').value),
+                (document.getElementById('cost').value),
+                (document.getElementById('quan').value)));
+        displayRegister();
+}
+  
+  function displayRegister(){
+        text = "";
+        text="";
+text="==============================================";
+text+="<br /><h2>Adham's Mini-Mart EMU Receipt: </h2>";
+	
+
+
+
+
+text+="<table>";
+text += "<tr><td><h3>" + "ITEM"+ "</h3></td>"+"<td><h3>" + "COST" +"</td></h3>"+"<td><h3>"+ "QUANTITY"+"</h3></td></tr>";
+ // for loop to concatenate the contents of the arrays' objects
+ for (var i=0; i<register.length; i++) {
+            text+="<p>"+"<tr><td>"+register[i].cart_item+"</td> "+"<td>"+register[i].cart_cost+" </td>"+"<td>"+register[i].cart_quan+"</td></tr>"+"</p>";          
+}
+        
+        document.getElementById("demo").innerHTML = text;
+}
+   
+   function clearArray(){
+       
+   register = [];              //Sets the array to an empty array!
+
+   text ="";                
+          document.getElementById("demo").innerHTML = "Array is now empty: "+register; 
+}
+	
+	//CHECKOUT//
+	
+ function checkOut(){
+	
+	for (var i = 0; i < register.length; i++) {
+	costSum = parseFloat(costSum) + (parseFloat(register[i].cart_cost)*parseFloat(register[i].cart_quan));
+
+	
+ }
+
+	
+	text+= "total is: $" + costSum;
+	text+="<br>";
+	
+		var answer = window.confirm("are these items taxable?")
+
+if (answer) {
+    var tax = costSum * 0.18;
+    var total = tax + costSum;
+    text+= " total after tax: $" + total;
+}
+
+	
+	
+	document.getElementById("demo").innerHTML = text;
+	
+}
+  </script>
+</head>
+<link rel = "stylesheet" type = "text/css" href = "../STYLES/StyleSheet.css">
+<body>
+ <div>
+   <h1>Creating an array of Objects Example</h1>
+   <form>
+      item: <input id="item" name="item" type="text" size="40" placeholder="item name"><br>
+      cost: <input id="cost" name="cost" type="text" placeholder="cost"><br>
+      quan: <input id="quan" name="quan" type="text" placeholder="quantity"><br>
+      <input type="reset" value="Add to Array" onclick="insert()">   
+      <input type="reset" value="Start Over! (Clear Cart)" onclick="clearArray()"> 
+      <input type="button" value="Check Out" onclick="checkOut()">
+   </form>
+   <p id="demo"></p>
+   </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Description: CHANGE MAKER - AADHAM OUDEIF
+-->
+<head>
+ <meta charset="utf-8">
+<title>Adham Oudeif Change maker </title>
+
+
+  
+</head>
+<script>
+function convertChange() {
+    var money = parseFloat(document.getElementById("penniesBox").value); 
+    var numberOfQuarters = Math.floor(money/25);
+    money = money%25;
+    var numberOfDimes = Math.floor(money/10);
+    money = money%25;
+    var numberOfNickels = Math.floor(money/5);
+    money = money%5;
+    var numberOfPennies = money;
+        document.getElementById("outputDiv").innerHTML=
+            'Quarters: ' + numberOfQuarters + "<br>" + 
+            'Dimes: ' + numberOfDimes + "<br>" + 
+            'Nickels: ' + numberOfNickels + "<br>" + 
+            'Pennies:' + numberOfPennies;
+}
+</script>
+
+<h2>Make Change</h2>
+<p>This page will tell you the minimum amount of pennies, nickels, dimes and quarters you need to match the number of pennies entered.</p>
+<p>Enter a number of pennies:
+<input type="text" id="penniesBox" size=12 value="">
+</p>
+    <input type="button" value="Show me the money!"
+    onclick="convertChange();">
+
+
+<hr>
+<div id="outputDiv"></div>
+</html>

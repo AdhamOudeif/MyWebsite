@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--
+Description: Demo6.html (Skeleton for your project!) IF you wish to use it!
+Create a grocery app, keeping track of the items purchased. Be able to delete the first or last item.
+Include what else your project will do here.
+Author:  Adham Oudeif, March 6th (And Bahorski)
+-->
+<head>
+<style>
+	div{
+  
+  width: 550px;
+  padding: 15px;
+  color:red;
+  background-color:yellow;
+  border: 5px solid gray;
+  margin: 0 auto; /*THIS IS TO KEEP THE BLOCK CENTERED*/
+
+	
+	}
+</style>
+<div>
+<style>
+
+table {
+  border: 3;
+  border-collapse: collapse;
+  width:50%
+  text-align: left;
+  
+}
+th, td {
+padding: 8px
+}
+
+
+
+
+
+</style>
+  <meta charset="utf-8" />
+  <script type="text/javascript">
+  var itemsArray = [];  // declares the array
+  var costArray = [];
+  var quanArray = [];
+  var costSum = 0;
+  var quanSum = 0;
+ 
+  function insertItem(){
+     itemsArray.push(document.getElementById('item').value)  // inserts at end
+     costArray.push(document.getElementById('cost').value);
+     quanArray.push(document.getElementById('quantity').value);
+     document.getElementById("demo1").innerHTML = "The last item: "+document.getElementById('item').value;
+     document.getElementById("demo2").innerHTML = "The WHOLE array: "+itemsArray.toString()+" " + costArray.toString()+" " +quanArray.toString();  // whole array
+     displayReceipt();
+  }
+  function deleteLast(){
+     itemsArray.pop();  // deletes last
+     document.getElementById("demo2").innerHTML = "The WHOLE array: "+itemsArray.toString()+costArray.toString()+quanArray.toString();;  // whole array
+     displayReceipt();
+  }
+    function deleteFirst(){
+     itemsArray.shift();  // deletes first element
+     document.getElementById("demo2").innerHTML = "The WHOLE array: "+itemsArray.toString()+costArray.toString()+quanArray.toString();;  // whole array
+     displayReceipt();
+  }
+	/*function checkOut(){
+	for(var i=0; i<itemsArray.length; i++){
+	costSum = costSum + document.getElementById('cost').value
+	quanSum = quanSum + document.getElementById('quantity').value
+	}
+	
+	text+= "your sum is " + costSum + "and " + quanSum;
+	document.getElementById('checkOut').innerHTML = result;
+	
+	
+	}*/
+	
+	function checkOut(){
+	
+	for (var i = 0; i < itemsArray.length; i++) {
+	costSum = parseFloat(costSum) + (parseFloat(costArray[i])*parseFloat(quanArray[i]));
+
+	
+}
+
+	
+	text+= "total is: $" + costSum;
+	text+="<br>";
+	
+		var answer = window.confirm("are these items taxable?")
+
+if (answer) {
+    var tax = costSum * 0.18;
+    var total = tax + costSum;
+    text+= " total after tax: $" + total;
+}
+
+	
+	
+	document.getElementById("demo2").innerHTML = text;
+	
+	
+	
+}
+
+  function displayReceipt(){
+    // Notice this "builds" a HUGE string, by embedding tags WITH an unordered list!
+text="";
+text="==============================================";
+text+="<br /><h2>Adham's Mini-Mart EMU Receipt: </h2>";
+	
+
+
+
+
+text+="<table>";
+text += "<tr><td><h3>" + "ITEM"+ "</h3></td>"+"<td><h3>" + "COST" +"</td></h3>"+"<td><h3>"+ "QUANTITY"+"</h3></td></tr>";
+for (var i = 0; i < itemsArray.length; i++) {
+text += "<tr><td>" + itemsArray[i]+ "</td>"+"<td>" + "$"+costArray[i] +"</td>"+"<td>"+ quanArray[i]+"</td></tr>";
+}
+text += "</table>";
+
+document.getElementById("demo2").innerHTML = text;
+}
+</script>
+</head>
+<link rel = "stylesheet" type = "text/css" href = "../STYLES/StyleSheet.css">
+<body>
+</div>
+<style>
+.header {
+  text-align: center;
+  color: Red;
+  
+  font-size: 20px;
+}
+</style>
+<div class="header">
+  <h1>Adham's Store</h1>
+  
+</div>
+<div>
+  <p> Enter an item into the text box. It stores it into an array.</p>
+  <form >
+     <input id="item" type="text" size="40" placeholder="Item"><br><br>
+      <input id="cost" type="number" size="40" placeholder="cost"><br><br>
+       <input id="quantity" type="number" size="40" placeholder="quantity"><br><br>
+     <input type="reset" value="Add to Cart" onclick="insertItem()">
+     <input type="button" value="Delete Last Item" onclick="deleteLast()">
+     <input type="button" value="Delete First Item" onclick="deleteFirst()">
+     <input type="button" value="Check Out" onclick="checkOut()">
+    <!-- <input type="button" value="Print Receipt" onclick="displayReceipt()"> -->
+  </form>
+  <p id="demo1"></p>
+  <p id="demo2"></p>
+</div>  
+</body>
+</html>

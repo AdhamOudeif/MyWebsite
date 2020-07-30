@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<!-- Adham Oudeif PROJECT 6 -->
+<head>
+<title>Adhams Container Project</title>
+
+<style>
+  #container {
+    width: 400px;
+  	height: 400px;
+  	position: relative;
+  	background: yellow;
+}
+
+#ball {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius:50%;
+  position: absolute;
+  background-color: red;
+}
+
+</style>
+<body>
+
+   <p>
+      <button onclick="myMove()">Click Me</button>
+   </p> 
+
+   <div id ="container">
+      <div id ="ball"></div>
+   </div>
+
+<script>
+
+function myMove() {
+  var elem = document.getElementById("ball");   
+  var xpos = 0;
+  var ypos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    
+    
+   if (xpos<150 && ypos<350){
+    xpos++;
+    ypos=2.3+ypos;
+    elem.style.left = xpos + 'px';
+    elem.style.top = ypos + 'px';
+    }
+    
+    if(xpos>=150 && ypos > 0){
+    xpos++;
+    ypos=ypos-1.78;
+    elem.style.left = xpos + 'px';
+    elem.style.top = ypos + 'px';
+    }
+    
+    
+   
+
+    
+    
+    
+   
+  }
+}
+</script>
+
+</body>
+
+</html>
+

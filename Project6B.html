@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang = "en">
+<!-- Adham Oudeif Project 6 part B -->
+<head>
+<title>Adham Oudeif video game store project</title>
+<link rel = "stylesheet" type = "text/css" href = "../STYLES/StyleSheet.css">
+<meta charset = "utf-8">
+<script>
+function total() {
+	var CallofDuty = document.getElementById('CallofDuty').value;
+	var FIFA = document.getElementById('FIFA').value;
+	var WWE = document.getElementById('WWE').value;
+	var error = new Error('ERROR! Not number');
+	var total = ((60*CallofDuty) + (80*FIFA) + (25* WWE));
+	result = "Your total is $" + total;
+	document.getElementById('outputTotal').innerHTML = result;
+}
+
+function hoverCallofDuty() {
+	document.getElementById("CallofDuty").style.background = "green";
+}
+
+function hoverFIFA() {
+	document.getElementById("FIFA").style.background = "green";
+}
+
+function hoverWWE() {
+	document.getElementById("WWE").style.background = "green";
+}
+
+function changeColorCallofDuty() {
+	document.getElementById("CallofDuty").style.background = "green";
+}
+
+function changeColorFIFA(){
+	document.getElementById("FIFA").style.background = "green";
+}
+
+function changeColorWWE() {
+	document.getElementById("WWE").style.background = "green";
+}
+
+function whiteCallofDuty() {
+	document.getElementById("CallofDuty").style.background = "yellow";
+}
+
+function whiteFIFA()
+{
+	document.getElementById("FIFA").style.background = "yellow";
+}
+
+function whiteWWE() {
+	document.getElementById("WWE").style.background = "yellow";
+}
+
+function resetForm() {
+	document.getElementById("form").reset();
+	document.getElementById("CallofDuty").style.background = "yellow";
+	document.getElementById("FIFA").style.background = "yellow";
+	document.getElementById("WWE").style.background = "yellow";
+}
+
+</script>
+</head>
+
+<body>
+<h2> Game STORE</h2>
+	<form id = "form">
+	<table class = "fifty">
+	<tr>
+	<td class = "fifty"><p> Item</p></td>
+	<td class = "fifty"><p> Quantity</p></td>
+</tr>
+
+<tr>
+	<td class = "fifty"><p> CallofDuty ($60)</p></td>
+	<td class = "fifty"><input id = "CallofDuty" type = "number" onchange = "changeColorCallofDuty()" onmouseover = "hoverCallofDuty()" onmouseout = "whiteCallofDuty()"></td>
+</tr>
+
+<tr>
+	<td class = "fifty"><p> FIFA($80)</p></td>
+	<td class = "fifty"><input id = "FIFA" type="number" onchange = "changeColorFIFA()" onmouseover = "hoverFIFA()" onmouseout = "whiteFIFA()"></td>
+</tr>
+
+<tr>
+	<td class = "fifty"><p> WWE($25)</p></td>
+	<td class = "fifty"><input id = "WWE" type = "number" onchange = "changeColorWWE()" onmouseover = "hoverWWE()" onmouseout = "whiteWWE()"></td>
+</tr>
+</table>
+</form>
+<p>
+<button onclick = "total()">Click here for total</button>
+</p>
+
+<p>
+<button onclick = "resetForm()">Click here to reset for new order</button>
+</p>
+
+<h3 id = "outputTotal" ></h3>
+</body>
+</html>
