@@ -1,0 +1,139 @@
+/* Adham Oudeifs style sheet 02/04/2020 */
+ul.n {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: gold;
+}
+
+li.n {
+  float: left;
+  border-right:1px solid white;
+}
+
+li.n :last-child {
+  border-right: none;
+}
+
+li.n a {
+  display: block;
+  color: red;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li.n a:hover:not(.active) {
+  background-color: purple;
+  color:yellow
+}
+
+li.n .active {
+  background-color: purple;
+  color: yellow;
+}
+
+hr{
+border-color:gold;
+background-color:black; 
+height:3mm
+}
+h1.a{
+background-color:brown;color:white;padding:5px 5px; text-align:center;
+}
+h2.a{
+background-color:brown;color:white;padding:5px 5px; text-align:center;
+}
+h3.a{
+text-align:center; color:brown;
+}
+h4.a{
+color:purple;
+}
+p.a{
+color:brown;
+}
+
+a:link{
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+ul.a{
+list-style-type: circle;
+margin: 10;
+padding: 10;
+}
+
+a:visited {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover{
+color:red;
+}
+a:active{
+color:blue;
+}
+body.a{
+background-color:yellow;
+}
+body{
+background-color:brown;
+
+}
+table.sixHundredWithBlackLine{
+border: 1px solid black;
+background-color:yellow;
+color:brown;
+width: 95%;
+margin-left:auto;
+margin-right:auto;
+table-layout: auto;
+border-collapse: collapse;
+}
+caption{
+caption-side: top;
+text-align: center;
+
+}
+td.thirtyThree{
+border: 1px solid black;
+color:purple;
+width: 33%
+padding: 5px;
+font-family:Times, 'Times New Roman', serif;
+font-style: italic;
+text-align:center;
+}
+td.sixtySix { 
+border: 1px solid black;
+width: 66%;
+font-family:Times, 'Times New Roman', serif;
+text-align:left;
+padding: 8px;
+
+}
+th.thirtyThree{
+border: 1px solid black;
+width: 33%
+
+}
+th.sixtySix{
+border: 1px solid black;
+width: 66%
+
+}
+table#t01 {
+width: 95%;
+background-color: yellow;
+color:purple;
+
+border-collapse: collapse;
+margin-left:auto;
+margin-right:auto;
+font-family:Times, 'Times New Roman', serif;
+text-align:center;
+}
